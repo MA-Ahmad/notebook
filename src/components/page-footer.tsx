@@ -38,8 +38,8 @@ export function PageFooter() {
       flexDirection="column-reverse"
       gridTemplateColumns={["1fr", "1fr", "1fr 1fr", "1fr 1fr"]}
       borderTopWidth={2}
-      mt="50px"
-      mb="50px"
+      mt="20px"
+      mb="20px"
       borderTopColor="gray.900"
       pt="20px"
     >
