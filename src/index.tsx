@@ -8,7 +8,7 @@ import * as serviceWorker from "./serviceWorker"
 ReactDOM.render(
   <React.StrictMode>
     <ColorModeScript />
-    <Box maxW='890px' mx='auto'>
+    <Box maxW='1050px' mx='auto'>
       <App />
     </Box>
   </React.StrictMode>,
