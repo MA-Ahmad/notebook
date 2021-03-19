@@ -1,42 +1,45 @@
-import * as React from "react"
+import * as React from "react";
 import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from "@chakra-ui/react"
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
-import { TopNav } from "./components/top-nav"
-import { PageFooter } from "./components/page-footer"
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
+import { ChakraProvider, Box, theme } from "@chakra-ui/react";
+import { TopNav } from "./components/top-nav";
+import { PageFooter } from "./components/page-footer";
+import ProjectsList from "./components/projects-list";
+import { HomePage } from "./components/home-page";
+import { RouteComponentProps, withRouter } from "react-router";
 
-export const App = () => (
-  <ChakraProvider theme={theme}>
-    <Box textAlign="center" fontSize="xl" p={5}>
-      <TopNav />
-      <Grid minH="100vh" p={3}>
-        <ColorModeSwitcher justifySelf="flex-end" />
-        <VStack spacing={8}>
-          <Logo h="40vmin" pointerEvents="none" />
-          <Text>
-            Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
-          </Text>
-          <Link
-            color="teal.500"
-            href="https://chakra-ui.com"
-            fontSize="2xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn Chakra
-          </Link>
-        </VStack>
-      </Grid>
-      <PageFooter />
-    </Box>
-  </ChakraProvider>
-)
+type AppComponentProps = RouteComponentProps;
+
+const App: React.FC<AppComponentProps> = ({ history }) => {
+  const [notes, setNotes] = React.useState<note[]>([]);
+
+  const handleNoteCreate = (note: note) => {
+    const newNotesState: note[] = [...notes];
+    newNotesState.push(note);
+    setNotes(newNotesState);
+    if (history.location.pathname !== "/") history.push("/");
+  };
+
+  return (
+    <ChakraProvider theme={theme}>
+      <Box textAlign="center" fontSize="xl" p={5}>
+        <TopNav handleNoteCreate={handleNoteCreate} />
+        <Switch>
+          <Route exact path="/projects" component={ProjectsList} />
+          <Route
+            exact
+            path="/"
+            component={() => <HomePage notes={notes} setNotes={setNotes} />}
+          />
+        </Switch>
+        <PageFooter />
+      </Box>
+    </ChakraProvider>
+  );
+};
+
+export default withRouter(App);
