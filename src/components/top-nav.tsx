@@ -1,38 +1,83 @@
 import * as React from "react";
 import {
   Box,
-  Button,
   Flex,
   Spacer,
   Heading,
-  WrapItem,
-  Avatar
+  Menu,
+  MenuItem,
+  MenuDivider,
+  MenuButton,
+  IconButton,
+  MenuList,
+  HStack,
+  useDisclosure
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import { AddIcon, HamburgerIcon, ArrowRightIcon } from "@chakra-ui/icons";
+import { ColorModeSwitcher } from "../ColorModeSwitcher";
+import NoteForm from "./note-form";
 
-export const TopNav = () => {
+export interface TopNavProps {
+  handleNoteCreate?: (note: note) => void;
+}
+
+export const TopNav: React.SFC<TopNavProps> = ({ handleNoteCreate }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
-    <Flex mb={"40px"}>
-      <Box p="2">
-        <Heading as="h1" size="xl">Notebook App</Heading>
-      </Box>
-      <Spacer />
-      <Box>
-        <WrapItem>
-          <Avatar
-            size="md"
-            name="Christian Nwamba"
-            src="/avatars/user_icon.jpg"
-          />{" "}
-        </WrapItem>
-        {/* <Button
-          colorScheme="teal"
-          mr="4"
-          d={["none", "inline", "inline", "inline"]}
-        >
-          Sign Up
-        </Button> */}
-        {/* <Button colorScheme="teal">Log in</Button> */}
-      </Box>
-    </Flex>
+    <>
+      <Flex mb={"40px"} align="center">
+        <Box p="2" as={Link} to="/">
+          <Heading
+            as="h1"
+            size="xl"
+            bgGradient="linear(to-l, #7928CA,#FF0080)"
+            bgClip="text"
+            _focus={{ boxShadow: "none", outline: "none" }}
+            _hover={{
+              textDecoration: "none",
+              bgGradient: "linear(to-r, red.500, yellow.500)"
+            }}
+          >
+            Notebook App
+          </Heading>
+        </Box>
+        <Spacer />
+        <Box>
+          <HStack>
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                aria-label="Options"
+                icon={<HamburgerIcon />}
+                transition="all 0.2s"
+                size="md"
+                variant="outline"
+                _hover={{ bg: "gray.400" }}
+                _focus={{ boxShadow: "outline" }}
+              />
+              <MenuList fontSize="sm">
+                <MenuItem icon={<AddIcon />} onClick={onOpen}>
+                  {" "}
+                  New Note
+                </MenuItem>
+                <MenuDivider />
+                <MenuItem icon={<ArrowRightIcon />} as={Link} to="/projects">
+                  {" "}
+                  Open Source Projects
+                </MenuItem>
+              </MenuList>
+            </Menu>
+            <ColorModeSwitcher justifySelf="flex-end" />
+          </HStack>
+        </Box>
+      </Flex>
+      <NoteForm
+        isOpen={isOpen}
+        onClose={onClose}
+        handleNoteCreate={handleNoteCreate}
+      />
+    </>
   );
 };
