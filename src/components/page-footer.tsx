@@ -38,8 +38,8 @@ export function PageFooter() {
       flexDirection="column-reverse"
       gridTemplateColumns={["1fr", "1fr", "1fr 1fr", "1fr 1fr"]}
       borderTopWidth={2}
-      mt="20px"
-      mb="20px"
+      mt="30px"
+      // mb="20px"
       borderTopColor="gray.900"
       pt="20px"
     >
@@ -53,12 +53,6 @@ export function PageFooter() {
               <ExternalFooterLink
                 href={`mailto:${siteConfig.author.email}`}
                 text="Contact us"
-              />
-            </Text>
-            <Text as="span">
-              <ExternalFooterLink
-                href={siteConfig.repo.issuesUrl}
-                text="Feedback"
               />
             </Text>
             <Text as="span">
@@ -110,7 +104,6 @@ export function PageFooter() {
           >
             Muhammad Ahmad
           </ChakraLink>{" "}
-          in Lahore, Pakistan
         </Text>
       </Box>
       <Box d={["none", "none", "block", "block"]}>
