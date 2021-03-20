@@ -5,8 +5,6 @@ import {
   Heading,
   SimpleGrid,
   Text,
-  Avatar,
-  Flex,
   Center,
   useColorModeValue
 } from "@chakra-ui/react";
@@ -53,11 +51,7 @@ const NotesList: React.SFC<NotesListProps> = ({ notes, handleClick }) => {
                   >
                     Note
                   </Text>
-                  <Heading
-                    // color={useColorModeValue('gray.700', 'white')}
-                    fontSize={"xl"}
-                    fontFamily={"body"}
-                  >
+                  <Heading fontSize={"xl"} fontFamily={"body"}>
                     {note.title}
                   </Heading>
                   <Text color={"gray.500"} fontSize="md">
