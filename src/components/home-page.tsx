@@ -13,12 +13,6 @@ export const HomePage: React.SFC<HomePageProps> = ({ notes, setNotes }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedNote, setSelectedNote] = React.useState<note>();
 
-  // const handleNoteCreate = (note: note) => {
-  //   const newNotesState: note[] = [...notes];
-  //   newNotesState.push(note);
-  //   setNotes(newNotesState);
-  // };
-
   const handleClick = (id: string) => {
     const selectedNote = notes.find((note: note) => note.id === id);
     setSelectedNote(selectedNote);
