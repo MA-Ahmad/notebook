@@ -51,7 +51,7 @@ const NotesList: React.SFC<NotesListProps> = ({ notes, handleClick }) => {
                   >
                     Note
                   </Text>
-                  <Heading fontSize={"xl"} fontFamily={"body"}>
+                  <Heading fontSize={"xl"} fontFamily={"body"} textTransform="capitalize">
                     {note.title}
                   </Heading>
                   <Text color={"gray.500"} fontSize="md">
