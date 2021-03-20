@@ -48,7 +48,7 @@ const projectsData = [
     title: "Image Gallery",
     desc: "This app built by using Tailwind CSS with React and Pixabay API.",
     technologies: ["React", "Tailwindcss"],
-    stars: 0,
+    stars: 1,
     githubLink: "https://github.com/MA-Ahmad/react-image-gallery",
     liveLink: "",
     coverImage: "/cover_images/image_gallery.png"
