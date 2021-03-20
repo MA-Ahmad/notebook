@@ -5,9 +5,11 @@ import {
   Image,
   Badge,
   SimpleGrid,
+  Text,
   Flex,
   Link,
   HStack,
+  Tooltip,
   useColorModeValue
 } from "@chakra-ui/react";
 import { StarIcon, ExternalLinkIcon } from "@chakra-ui/icons";
@@ -15,8 +17,8 @@ import projectsData from "../data/projects-data";
 
 const ProjectsList = () => {
   const bg = useColorModeValue("white", "#2f3244");
-  const textColor = useColorModeValue("gray.600","#b5b1b1");
-  
+  const textColor = useColorModeValue("gray.600", "#b5b1b1");
+
   return (
     <Box minH={"50vh"}>
       <Flex p="2" justifyContent="center">
@@ -82,23 +84,25 @@ const ProjectsList = () => {
                     <ExternalLinkIcon mx="3px" />
                   </Link>
                 </Box>
-                <Box>
+                <Box mt="1">
                   {project.stars ? (
                     <Link
                       href={project.githubLink}
                       textDecoration={"none !important"}
                       isExternal
                     >
-                      <StarIcon color="teal.300" fontSize="sm" />
-                      <Box as="span" ml="2" color={textColor} fontSize="sm">
-                        {/* <Tooltip
+                      <Tooltip
                         hasArrow
                         label="Github stars"
                         placement="top-end"
-                      > */}
-                        {project.stars}
-                        {/* </Tooltip> */}
-                      </Box>
+                      >
+                        <Box>
+                          <StarIcon color="teal.300" fontSize="sm" />
+                          <Box as="span" ml="2" color={textColor} fontSize="sm">
+                            {project.stars}
+                          </Box>
+                        </Box>
+                      </Tooltip>
                     </Link>
                   ) : (
                     ""
