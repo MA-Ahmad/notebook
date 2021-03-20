@@ -39,7 +39,6 @@ export function PageFooter() {
       gridTemplateColumns={["1fr", "1fr", "1fr 1fr", "1fr 1fr"]}
       borderTopWidth={2}
       mt="30px"
-      // mb="20px"
       borderTopColor="gray.900"
       pt="20px"
     >
@@ -76,7 +75,7 @@ export function PageFooter() {
                 text="Speak at Event"
               />
             </Text>
-            
+
             <Text as="span">
               <ExternalFooterLink
                 href={`mailto:${siteConfig.author.email}`}
