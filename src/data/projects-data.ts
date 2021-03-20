@@ -27,6 +27,15 @@ const projectsData = [
     coverImage: "/cover_images/portfolio.png"
   },
   {
+    title: "Image Gallery",
+    desc: "This app built by using Tailwind CSS with React and Pixabay API.",
+    technologies: ["React", "Tailwindcss"],
+    stars: 2,
+    githubLink: "https://github.com/MA-Ahmad/react-image-gallery",
+    liveLink: "",
+    coverImage: "/cover_images/image_gallery.png"
+  },
+  {
     title: "Crud Demo App",
     desc: "A simple react+rails(RR) CRUD app with tailwindcss.",
     technologies: ["React", "Rails", "Tailwindcss"],
@@ -43,15 +52,6 @@ const projectsData = [
     githubLink: "https://github.com/MA-Ahmad/rails-app",
     liveLink: "https://urltohtmlapp.herokuapp.com/",
     coverImage: ""
-  },
-  {
-    title: "Image Gallery",
-    desc: "This app built by using Tailwind CSS with React and Pixabay API.",
-    technologies: ["React", "Tailwindcss"],
-    stars: 1,
-    githubLink: "https://github.com/MA-Ahmad/react-image-gallery",
-    liveLink: "",
-    coverImage: "/cover_images/image_gallery.png"
   }
 ];
 
