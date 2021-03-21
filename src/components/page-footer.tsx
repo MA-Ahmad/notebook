@@ -18,7 +18,6 @@ import siteConfig from "../configs/site-config";
 import { FooterSignup } from "./footer-signup";
 import { Link } from "react-router-dom";
 import { FaGithub, FaDev, FaLinkedin, FaQuora, FaTwitter } from "react-icons/fa";
-import { FiMail } from "react-icons/fi";
 
 const iconProps = {
   variant: "ghost",
