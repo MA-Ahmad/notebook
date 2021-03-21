@@ -7,6 +7,8 @@ const siteConfig = {
     github: 'https://github.com/MA-Ahmad',
     twitter: 'https://twitter.com/muhammad_ahmaad',
     linkedin: 'https://linkedin.com/in/muhammad-ahmad20',
+    quora: 'https://www.quora.com/profile/Muhammad-Ahmad-66',
+    dev: 'https://dev.to/m_ahmad',
     email: 'muhammad.ahmad8043@gmail.com'
   },
   repo: {
