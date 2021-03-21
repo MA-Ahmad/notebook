@@ -17,7 +17,7 @@ import {
 import siteConfig from "../configs/site-config";
 import { FooterSignup } from "./footer-signup";
 import { Link } from "react-router-dom";
-import { FaGithub, FaDev, FaLinkedin, FaQuora } from "react-icons/fa";
+import { FaGithub, FaDev, FaLinkedin, FaQuora, FaTwitter } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 
 const iconProps = {
@@ -174,14 +174,14 @@ export function PageFooter() {
                           label="LinkedIn Account"
                         />
                         <ExternalSocialLink
-                          href="mailto:muhammad.ahmad8043@gmail.com"
-                          icon={<FiMail />}
-                          label="Mail ahmad"
+                          href="https://www.twitter.com/muhammad_ahmaad"
+                          icon={<FaTwitter />}
+                          label="Twitter Account"
                         />
                         <ExternalSocialLink
                           href="https://www.quora.com/profile/Muhammad-Ahmad-66"
                           icon={<FaQuora />}
-                          label="Quora ahmad"
+                          label="Quora Account"
                         />
                       </Stack>
                     </PopoverBody>
@@ -210,7 +210,7 @@ export function PageFooter() {
           <ChakraLink
             _focus={{ boxShadow: "none", outline: "none" }}
             target="_blank"
-            href={siteConfig.author.twitter}
+            href={siteConfig.author.github}
             fontWeight={600}
             color={"gray.400"}
             bgClip="text"
