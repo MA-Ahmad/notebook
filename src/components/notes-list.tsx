@@ -7,6 +7,7 @@ import {
   Text,
   Flex,
   Center,
+  Fade,
   Icon,
   useColorModeValue
 } from "@chakra-ui/react";
@@ -40,6 +41,7 @@ const NotesList: React.SFC<NotesListProps> = ({ notes, handleClick }) => {
           className="hover-grayscale"
         >
           {notes.map(note => (
+            <Fade in={true}>
               <Center py={10} px={5} key={note.id}>
                 <Box
                   maxH={"400px"}
@@ -97,6 +99,7 @@ const NotesList: React.SFC<NotesListProps> = ({ notes, handleClick }) => {
                   </Stack>
                 </Box>
               </Center>
+            </Fade>
           ))}
         </SimpleGrid>
       </Box>
