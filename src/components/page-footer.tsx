@@ -5,7 +5,14 @@ import {
   SimpleGrid,
   Stack,
   Text,
-  
+  Popover,
+  PopoverTrigger,
+  Portal,
+  PopoverContent,
+  PopoverArrow,
+  PopoverCloseButton,
+  PopoverBody,
+  IconButton
 } from "@chakra-ui/react";
 import siteConfig from "../configs/site-config";
 import { FooterSignup } from "./footer-signup";
@@ -67,7 +74,28 @@ const InternalFooterLink = (props: InternalFooterLinkProps) => {
   );
 };
 
+type ExternalSocialLinkProps = {
+  href: string;
+  label: string;
+  isExternal?: boolean;
+  icon: any;
+};
 
+const ExternalSocialLink = (props: ExternalSocialLinkProps) => {
+  const { href, label, icon, isExternal = true} = props;
+
+  return (
+    <IconButton
+      as={ChakraLink}
+      href={href}
+      target={isExternal ? "_blank" : "_self"}
+      aria-label={label}
+      // size="lg"
+      icon={icon}
+      {...iconProps}
+    />
+  );
+};
 
 export function PageFooter() {
 
@@ -107,6 +135,61 @@ export function PageFooter() {
           </Stack>
           <Stack>
             <Text as="span">
+              <Popover
+                placement="top"
+              >
+                <PopoverTrigger>
+                  <Text
+                    _focus={{ outline: "none", boxShadow: "none" }}
+                    fontWeight={500}
+                    color="gray.500"
+                    _hover={{ color: "gray.600", textDecoration: "none" }}
+                  >
+                    Social Accounts
+                  </Text>
+                </PopoverTrigger>
+                <Portal>
+                  <PopoverContent>
+                    <PopoverArrow />
+                    <PopoverCloseButton />
+                    <PopoverBody>
+                      <Stack
+                        as="footer"
+                        isInline
+                        spacing={[1, 2]}
+                        justifyContent="center"
+                        alignItems="center"
+                      >
+                        <ExternalSocialLink
+                          href="https://github.com/MA-Ahmad"
+                          icon={<FaGithub />}
+                          label="Github Account"
+                        />
+                        <ExternalSocialLink
+                          href="https://dev.to/m_ahmad"
+                          icon={<FaDev />}
+                          label="Dev Account"
+                        />
+                        <ExternalSocialLink
+                          href="https://www.linkedin.com/feed/"
+                          icon={<FaLinkedin />}
+                          label="LinkedIn Account"
+                        />
+                        <ExternalSocialLink
+                          href="mailto:muhammad.ahmad8043@gmail.com"
+                          icon={<FiMail />}
+                          label="Mail ahmad"
+                        />
+                        <ExternalSocialLink
+                          href="https://www.quora.com/profile/Muhammad-Ahmad-66"
+                          icon={<FaQuora />}
+                          label="Quora ahmad"
+                        />
+                      </Stack>
+                    </PopoverBody>
+                  </PopoverContent>
+                </Portal>
+              </Popover>
             </Text>
 
             <Text as="span">
