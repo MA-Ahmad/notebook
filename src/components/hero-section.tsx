@@ -1,10 +1,11 @@
 import * as React from "react";
-import { Heading, Text, Flex } from "@chakra-ui/react";
+import { Heading, Text, Flex, SlideFade } from "@chakra-ui/react";
 
 export default function HeroSection() {
   return (
     <>
       <Flex h={"50vh"} justifyContent="center" align="center">
+        <SlideFade in={true} offsetY="50vh">
           <Heading
             fontWeight={600}
             fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
@@ -20,6 +21,7 @@ export default function HeroSection() {
               your daily work
             </Text>
           </Heading>
+        </SlideFade>
       </Flex>
     </>
   );
