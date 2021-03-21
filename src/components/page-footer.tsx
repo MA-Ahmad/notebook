@@ -82,7 +82,7 @@ type ExternalSocialLinkProps = {
 };
 
 const ExternalSocialLink = (props: ExternalSocialLinkProps) => {
-  const { href, label, icon, isExternal = true} = props;
+  const { href, label, icon, isExternal = true } = props;
 
   return (
     <IconButton
@@ -98,7 +98,6 @@ const ExternalSocialLink = (props: ExternalSocialLinkProps) => {
 };
 
 export function PageFooter() {
-
   return (
     <SimpleGrid
       flexDirection="column-reverse"
@@ -135,14 +134,13 @@ export function PageFooter() {
           </Stack>
           <Stack>
             <Text as="span">
-              <Popover
-                placement="top"
-              >
+              <Popover placement="top">
                 <PopoverTrigger>
                   <Text
                     _focus={{ outline: "none", boxShadow: "none" }}
                     fontWeight={500}
                     color="gray.500"
+                    cursor="pointer"
                     _hover={{ color: "gray.600", textDecoration: "none" }}
                   >
                     Social Accounts
