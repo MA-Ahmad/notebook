@@ -4,10 +4,20 @@ import {
   Link as ChakraLink,
   SimpleGrid,
   Stack,
-  Text
+  Text,
+  
 } from "@chakra-ui/react";
 import siteConfig from "../configs/site-config";
 import { FooterSignup } from "./footer-signup";
+import { Link } from "react-router-dom";
+import { FaGithub, FaDev, FaLinkedin, FaQuora } from "react-icons/fa";
+import { FiMail } from "react-icons/fi";
+
+const iconProps = {
+  variant: "ghost",
+  size: "lg",
+  isRound: true
+};
 
 type ExternalFooterLinkProps = {
   href: string;
@@ -25,14 +35,42 @@ const ExternalFooterLink = (props: ExternalFooterLinkProps) => {
       target={isExternal ? "_blank" : "_self"}
       fontWeight={500}
       color="gray.500"
-      _hover={{ color: "gray.100", textDecoration: "none" }}
+      _hover={{ color: "gray.600", textDecoration: "none" }}
     >
       {text}
     </ChakraLink>
   );
 };
 
+type InternalFooterLinkProps = {
+  href: string;
+  text: string;
+};
+
+const InternalFooterLink = (props: InternalFooterLinkProps) => {
+  const { href, text } = props;
+
+  return (
+    <Link to={href}>
+      <a>
+        <ChakraLink
+          _focus={{ outline: "none", boxShadow: "none" }}
+          as="span"
+          fontWeight={500}
+          color="gray.500"
+          _hover={{ color: "gray.600", textDecoration: "none" }}
+        >
+          {text}
+        </ChakraLink>
+      </a>
+    </Link>
+  );
+};
+
+
+
 export function PageFooter() {
+
   return (
     <SimpleGrid
       flexDirection="column-reverse"
@@ -61,19 +99,14 @@ export function PageFooter() {
               />
             </Text>
             <Text as="span">
-              <ExternalFooterLink
-                href={"/#community-members"}
-                isExternal={false}
-                text="Members"
+              <InternalFooterLink
+                href="/projects"
+                text="Open source projects"
               />
             </Text>
           </Stack>
           <Stack>
             <Text as="span">
-              <ExternalFooterLink
-                href={`mailto:${siteConfig.author.email}`}
-                text="Speak at Event"
-              />
             </Text>
 
             <Text as="span">
@@ -99,7 +132,11 @@ export function PageFooter() {
             href={siteConfig.author.twitter}
             fontWeight={600}
             color={"gray.400"}
-            _hover={{ textDecoration: "none", color: "yellow.400" }}
+            bgClip="text"
+            bgGradient="linear(to-l, #7928CA,#FF0080)"
+            _hover={{
+              bgGradient: "linear(to-r, red.500, yellow.500)"
+            }}
           >
             Muhammad Ahmad
           </ChakraLink>{" "}
