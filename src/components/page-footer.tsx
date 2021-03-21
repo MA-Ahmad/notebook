@@ -19,12 +19,6 @@ import { FooterSignup } from "./footer-signup";
 import { Link } from "react-router-dom";
 import { FaGithub, FaDev, FaLinkedin, FaQuora, FaTwitter } from "react-icons/fa";
 
-const iconProps = {
-  variant: "ghost",
-  size: "lg",
-  isRound: true
-};
-
 type ExternalFooterLinkProps = {
   href: string;
   text: string;
@@ -73,15 +67,22 @@ const InternalFooterLink = (props: InternalFooterLinkProps) => {
   );
 };
 
+const iconProps = {
+  variant: "ghost",
+  size: "lg",
+  isRound: true
+};
+
 type ExternalSocialLinkProps = {
   href: string;
   label: string;
   isExternal?: boolean;
+  type: string;
   icon: any;
 };
 
 const ExternalSocialLink = (props: ExternalSocialLinkProps) => {
-  const { href, label, icon, isExternal = true } = props;
+  const { href, label, icon, type, isExternal = true } = props;
 
   return (
     <IconButton
@@ -89,8 +90,8 @@ const ExternalSocialLink = (props: ExternalSocialLinkProps) => {
       href={href}
       target={isExternal ? "_blank" : "_self"}
       aria-label={label}
-      // size="lg"
       icon={icon}
+      colorScheme={type}
       {...iconProps}
     />
   );
@@ -160,26 +161,31 @@ export function PageFooter() {
                         <ExternalSocialLink
                           href={siteConfig.author.github}
                           icon={<FaGithub />}
+                          type="gray"
                           label="Github Account"
                         />
                         <ExternalSocialLink
                           href={siteConfig.author.dev}
                           icon={<FaDev />}
+                          type="gray"
                           label="Dev Account"
                         />
                         <ExternalSocialLink
                           href={siteConfig.author.linkedin}
                           icon={<FaLinkedin />}
+                          type="linkedin"
                           label="LinkedIn Account"
                         />
                         <ExternalSocialLink
                           href={siteConfig.author.twitter}
                           icon={<FaTwitter />}
+                          type="twitter"
                           label="Twitter Account"
                         />
                         <ExternalSocialLink
                           href={siteConfig.author.quora}
                           icon={<FaQuora />}
+                          type="red"
                           label="Quora Account"
                         />
                       </Stack>
