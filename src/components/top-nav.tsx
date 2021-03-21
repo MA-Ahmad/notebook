@@ -1,6 +1,7 @@
 import * as React from "react";
 import {
   Box,
+  Text,
   Flex,
   Spacer,
   Heading,
@@ -60,12 +61,12 @@ export const TopNav: React.SFC<TopNavProps> = ({ handleNoteCreate }) => {
               <MenuList fontSize="sm">
                 <MenuItem icon={<AddIcon />} onClick={onOpen}>
                   {" "}
-                  New Note
+                  <Text textShadow="1px 1px #9c1786">New Note</Text>
                 </MenuItem>
                 <MenuDivider />
                 <MenuItem icon={<ArrowRightIcon />} as={Link} to="/projects">
                   {" "}
-                  Open Source Projects
+                  <Text textShadow="1px 1px #9c1786">Open Source Projects</Text>                  
                 </MenuItem>
               </MenuList>
             </Menu>
