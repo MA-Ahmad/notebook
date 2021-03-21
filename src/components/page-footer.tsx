@@ -159,27 +159,27 @@ export function PageFooter() {
                         alignItems="center"
                       >
                         <ExternalSocialLink
-                          href="https://github.com/MA-Ahmad"
+                          href={siteConfig.author.github}
                           icon={<FaGithub />}
                           label="Github Account"
                         />
                         <ExternalSocialLink
-                          href="https://dev.to/m_ahmad"
+                          href={siteConfig.author.dev}
                           icon={<FaDev />}
                           label="Dev Account"
                         />
                         <ExternalSocialLink
-                          href="https://www.linkedin.com/feed/"
+                          href={siteConfig.author.linkedin}
                           icon={<FaLinkedin />}
                           label="LinkedIn Account"
                         />
                         <ExternalSocialLink
-                          href="https://www.twitter.com/muhammad_ahmaad"
+                          href={siteConfig.author.twitter}
                           icon={<FaTwitter />}
                           label="Twitter Account"
                         />
                         <ExternalSocialLink
-                          href="https://www.quora.com/profile/Muhammad-Ahmad-66"
+                          href={siteConfig.author.quora}
                           icon={<FaQuora />}
                           label="Quora Account"
                         />
