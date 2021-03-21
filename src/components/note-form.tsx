@@ -92,7 +92,7 @@ const NoteForm: React.SFC<NoteFormProps> = ({
             />
           </FormControl>
           <FormControl mt={4}>
-            <FormLabel>Note</FormLabel>
+            <FormLabel>Body</FormLabel>
             <Textarea
               ref={bodyRef}
               value={body}
