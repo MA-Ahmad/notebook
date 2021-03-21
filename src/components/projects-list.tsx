@@ -11,6 +11,7 @@ import {
   HStack,
   Tooltip,
   useColorModeValue,
+  SlideFade,
   useDisclosure
 } from "@chakra-ui/react";
 import { StarIcon, ExternalLinkIcon } from "@chakra-ui/icons";
@@ -48,6 +49,7 @@ const ProjectsList = () => {
             Projects
           </Heading>
         </Flex>
+        <SlideFade in={true} offsetY="50vh">
           <SimpleGrid
             columns={[1, 2, 2, 3]}
             mt="40px"
@@ -150,6 +152,7 @@ const ProjectsList = () => {
               </Box>
             ))}
           </SimpleGrid>
+        </SlideFade>
       </Box>
       <Carousel
         imageUrl={imageUrl}
