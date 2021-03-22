@@ -7,7 +7,7 @@ export default function HeroSection() {
     <>
       <Flex h={"55vh"} justifyContent="center" align="center">
         <SlideFade in={true} offsetY="50vh">
-          <motion.div whileHover={{ y: -50 }}>
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <Heading
               fontWeight={600}
               fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
