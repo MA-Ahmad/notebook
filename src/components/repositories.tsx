@@ -15,10 +15,10 @@ import {
   useDisclosure
 } from "@chakra-ui/react";
 import { StarIcon, ExternalLinkIcon } from "@chakra-ui/icons";
-import projectsData from "../data/projects-data";
+import repositoriesList from "../data/repositories-list";
 import Carousel from "./carousel";
 
-const ProjectsList = () => {
+const Repositories = () => {
   const [imageUrl, setImageUrl] = React.useState<string>("");
   const bg = useColorModeValue("white", "#2f3244");
   const textColor = useColorModeValue("gray.600", "#b5b1b1");
@@ -46,7 +46,7 @@ const ProjectsList = () => {
               bgGradient: "linear(to-r, red.500, yellow.500)"
             }}
           >
-            Projects
+            Repositories
           </Heading>
         </Flex>
         <SlideFade in={true} offsetY="50vh">
@@ -57,7 +57,7 @@ const ProjectsList = () => {
             position="relative"
             overflow="hidden"
           >
-            {projectsData.map((project, index) => (
+            {repositoriesList.map((repo, index) => (
               <Box
                 maxW="sm"
                 height="fit-content"
@@ -74,11 +74,11 @@ const ProjectsList = () => {
                   height={{ base: "28vh", lg: "32vh" }}
                   cursor="pointer"
                   width={"100%"}
-                  src={project.coverImage}
+                  src={repo.coverImage}
                   objectFit="cover"
                   alt="cover image"
                   fallbackSrc="https://via.placeholder.com/320x216/DCDFDF/ffffff/?text=CoverImage"
-                  onClick={() => handleClick(project.coverImage)}
+                  onClick={() => handleClick(repo.coverImage)}
                 />
                 <Box p="5" bg={bg}>
                   <Flex justifyContent="space-between" alignItems="center">
@@ -92,18 +92,18 @@ const ProjectsList = () => {
                       isTruncated
                     >
                       <Link
-                        href={project.liveLink || project.githubLink}
+                        href={repo.liveLink || repo.githubLink}
                         textDecoration={"none !important"}
                         isExternal
                       >
-                        {project.title}
+                        {repo.title}
                         <ExternalLinkIcon mx="3px" />
                       </Link>
                     </Box>
                     <Box mt="1">
-                      {project.stars ? (
+                      {repo.stars ? (
                         <Link
-                          href={project.githubLink}
+                          href={repo.githubLink}
                           textDecoration={"none !important"}
                           isExternal
                         >
@@ -120,7 +120,7 @@ const ProjectsList = () => {
                                 color={textColor}
                                 fontSize="sm"
                               >
-                                {project.stars}
+                                {repo.stars}
                               </Box>
                             </Box>
                           </Tooltip>
@@ -132,7 +132,7 @@ const ProjectsList = () => {
                   </Flex>
                   <Box textAlign="left">
                     <HStack spacing="1" mt="2" mb="2">
-                      {project.technologies.map((tech, index) => (
+                      {repo.technologies.map((tech, index) => (
                         <Badge
                           borderRadius="full"
                           px="1"
@@ -146,7 +146,7 @@ const ProjectsList = () => {
                     </HStack>
                   </Box>
                   <Box color={textColor} fontSize="md" textAlign="left">
-                    {project.desc}
+                    {repo.desc}
                   </Box>
                 </Box>
               </Box>
@@ -164,4 +164,4 @@ const ProjectsList = () => {
   );
 };
 
-export default ProjectsList;
+export default Repositories;

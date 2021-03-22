@@ -1,6 +1,6 @@
 import coverImages from "./cover_images";
 
-const projectsData = [
+const repositoriesList = [
   {
     title: "Blog App",
     desc: "A Blog App built by using React, ChakraUI and Formik.",
@@ -87,4 +87,4 @@ const projectsData = [
   }
 ];
 
-export default projectsData;
+export default repositoriesList;

@@ -66,7 +66,7 @@ export const TopNav: React.SFC<TopNavProps> = ({ handleNoteCreate }) => {
                 <MenuDivider />
                 <MenuItem icon={<ArrowRightIcon />} as={Link} to="/projects">
                   {" "}
-                  <Text textShadow="1px 1px #9c1786">Open Source Projects</Text>                  
+                  <Text textShadow="1px 1px #9c1786">Open Source Repositories</Text>                  
                 </MenuItem>
               </MenuList>
             </Menu>
