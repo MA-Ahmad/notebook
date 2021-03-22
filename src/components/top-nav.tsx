@@ -18,6 +18,7 @@ import { Link } from "react-router-dom";
 import { AddIcon, HamburgerIcon, ArrowRightIcon } from "@chakra-ui/icons";
 import { ColorModeSwitcher } from "../ColorModeSwitcher";
 import NoteForm from "./note-form";
+import { motion } from "framer-motion";
 
 export interface TopNavProps {
   handleNoteCreate?: (note: note) => void;
@@ -28,21 +29,23 @@ export const TopNav: React.SFC<TopNavProps> = ({ handleNoteCreate }) => {
 
   return (
     <>
-      <Flex mb={"40px"} align="center">
+      <Flex mb={"30px"} align="center">
         <Box p="2" as={Link} to="/">
-          <Heading
-            as="h1"
-            size="xl"
-            bgGradient="linear(to-l, #7928CA,#FF0080)"
-            bgClip="text"
-            _focus={{ boxShadow: "none", outline: "none" }}
-            _hover={{
-              textDecoration: "none",
-              bgGradient: "linear(to-r, red.500, yellow.500)"
-            }}
-          >
-            Notebook App
-          </Heading>
+          <motion.div whileHover={{ scale: 1.1 }}>
+            <Heading
+              as="h1"
+              size="xl"
+              bgGradient="linear(to-l, #7928CA,#FF0080)"
+              bgClip="text"
+              _focus={{ boxShadow: "none", outline: "none" }}
+              _hover={{
+                textDecoration: "none",
+                bgGradient: "linear(to-r, red.500, yellow.500)"
+              }}
+            >
+              Notebook App
+            </Heading>
+          </motion.div>
         </Box>
         <Spacer />
         <Box>
@@ -66,7 +69,9 @@ export const TopNav: React.SFC<TopNavProps> = ({ handleNoteCreate }) => {
                 <MenuDivider />
                 <MenuItem icon={<ArrowRightIcon />} as={Link} to="/projects">
                   {" "}
-                  <Text textShadow="1px 1px #9c1786">Open Source Repositories</Text>                  
+                  <Text textShadow="1px 1px #9c1786">
+                    Open Source Repositories
+                  </Text>
                 </MenuItem>
               </MenuList>
             </Menu>
