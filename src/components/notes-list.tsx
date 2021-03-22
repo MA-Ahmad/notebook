@@ -16,19 +16,25 @@ import { DeleteIcon } from "@chakra-ui/icons";
 export interface NotesListProps {
   notes: note[];
   handleClick: (id: string) => void;
+  setNotes: (note: note[]) => void;
 }
 
-const NotesList: React.SFC<NotesListProps> = ({ notes, handleClick }) => {
+const NotesList: React.SFC<NotesListProps> = ({
+  notes,
+  handleClick,
+  setNotes
+}) => {
   const bg = useColorModeValue("white", "#2f3244");
 
-  const handleDelete = (
+  const onDelete = (
     id: string,
     e: React.MouseEvent<SVGElement, MouseEvent>
   ) => {
-    alert(id);
+    const newNotes: note[] = notes.filter((note: note) => note.id !== id);
+    setNotes(newNotes);
     e.stopPropagation();
   };
-  
+
   return (
     <>
       <Box minH={"50vh"}>
@@ -80,7 +86,7 @@ const NotesList: React.SFC<NotesListProps> = ({ notes, handleClick }) => {
                           as={DeleteIcon}
                           w={4}
                           h={4}
-                          onClick={e => handleDelete(note.id, e)}
+                          onClick={e => onDelete(note.id, e)}
                         />
                       </Box>
                     </Flex>

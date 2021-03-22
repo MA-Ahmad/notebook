@@ -29,7 +29,7 @@ export const HomePage: React.SFC<HomePageProps> = ({ notes, setNotes }) => {
   return (
     <>
       {notes.length ? (
-        <NotesList notes={notes} handleClick={handleClick} />
+        <NotesList notes={notes} handleClick={handleClick} setNotes={setNotes} />
       ) : (
         <HeroSection />
       )}
