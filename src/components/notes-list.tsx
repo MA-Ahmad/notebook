@@ -38,20 +38,19 @@ const NotesList: React.SFC<NotesListProps> = ({ notes, handleClick }) => {
           gridGap="10px"
           position="relative"
           overflow="hidden"
-          className="hover-grayscale"
         >
           {notes.map(note => (
             <Fade in={true}>
-              <Center py={10} px={5} key={note.id}>
+              <Center py={6} px={5} key={note.id}>
                 <Box
                   maxH={"400px"}
                   w="100%"
-                  boxShadow={"xl"}
+                  boxShadow={"lg"}
                   rounded={"md"}
                   p={6}
                   overflow={"hidden"}
                   cursor="pointer"
-                  _hover={{ boxShadow: "2xl" }}
+                  _hover={{ boxShadow: "xl" }}
                   bg={bg}
                   role="group"
                   onClick={() => handleClick(note.id)}
