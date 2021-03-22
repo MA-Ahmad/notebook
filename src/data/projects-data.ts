@@ -51,19 +51,6 @@ const projectsData = [
     coverImage: coverImages[3]
   },
   {
-    title: "Crud Demo App",
-    desc: "A simple react+rails(RR) CRUD app with tailwindcss.",
-    technologies: [
-      { name: "React", color: "green" },
-      { name: "Rails", color: "red" },
-      { name: "Tailwindcss", color: "telegram" }
-    ],
-    stars: 1,
-    githubLink: "https://github.com/MA-Ahmad/react_rails_blog",
-    liveLink: "https://react-on-rails-blog.herokuapp.com/",
-    coverImage: coverImages[4]
-  },
-  {
     title: "Notebook App",
     desc: "Create notes for your daily important work.",
     technologies: [
@@ -71,9 +58,22 @@ const projectsData = [
       { name: "Typescript", color: "blue" },
       { name: "ChakraUi", color: "teal" }
     ],
-    stars: 1,
+    stars: 2,
     githubLink: "https://github.com/MA-Ahmad/notebook",
     liveLink: "",
+    coverImage: coverImages[4]
+  },
+  {
+    title: "Crud Demo App",
+    desc: "A simple react+rails(RR) CRUD app with tailwindcss.",
+    technologies: [
+      { name: "React", color: "green" },
+      { name: "Rails", color: "red" },
+      { name: "Tailwindcss", color: "telegram" }
+    ],
+    stars: 2,
+    githubLink: "https://github.com/MA-Ahmad/react_rails_blog",
+    liveLink: "https://react-on-rails-blog.herokuapp.com/",
     coverImage: coverImages[5]
   },
   {

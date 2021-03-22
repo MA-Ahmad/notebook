@@ -198,7 +198,7 @@ export function PageFooter() {
             <Text as="span">
               <ExternalFooterLink
                 href={`mailto:${siteConfig.author.email}`}
-                text="Sponsor us"
+                text="Sponsor"
               />
             </Text>
             <Text as="span">
