@@ -7,6 +7,7 @@ import {
   SimpleGrid,
   Text,
   Flex,
+  Center,
   Link,
   HStack,
   Tooltip,
@@ -60,6 +61,7 @@ const Repositories = () => {
           >
             {repositoriesList.map((repo, index) => (
               <motion.div whileHover={{ y: -10 }}>
+                <Center>
                 <Box
                   maxW="sm"
                   height="fit-content"
@@ -153,6 +155,7 @@ const Repositories = () => {
                     </Box>
                   </Box>
                 </Box>
+                </Center>
               </motion.div>
             ))}
           </SimpleGrid>
