@@ -17,7 +17,7 @@ import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 
 export interface NotesListProps {
   notes: note[];
-  handleClick: (id: string) => void;
+  handleClick: (id: string, readOnly: boolean) => void;
   setNotes: (note: note[]) => void;
 }
 
@@ -40,7 +40,7 @@ const NotesList: React.SFC<NotesListProps> = ({
   };
 
   const onClick = (id: string, e: React.MouseEvent<SVGElement, MouseEvent>) => {
-    handleClick(id);
+    handleClick(id, false);
     e.stopPropagation();
   };
 
@@ -78,7 +78,7 @@ const NotesList: React.SFC<NotesListProps> = ({
                   _hover={{ boxShadow: "xl" }}
                   bg={bg}
                   role="group"
-                  onClick={() => handleClick(note.id)}
+                  onClick={() => handleClick(note.id, true)}
                 >
                   <Stack>
                     <Flex
@@ -124,6 +124,7 @@ const NotesList: React.SFC<NotesListProps> = ({
                       fontSize={"xl"}
                       fontFamily={"body"}
                       textTransform="capitalize"
+                      noOfLines={2}
                     >
                       {note.title}
                     </Heading>
