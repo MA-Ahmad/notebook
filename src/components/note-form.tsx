@@ -74,6 +74,7 @@ const NoteForm: React.SFC<NoteFormProps> = ({
     <Modal
       isOpen={isOpen}
       onClose={onClose}
+      size="lg"
       isCentered
       motionPreset="slideInBottom"
     >
@@ -95,12 +96,12 @@ const NoteForm: React.SFC<NoteFormProps> = ({
                 {!!errors?.title && errors?.title?.message}
               </FormErrorMessage>
             </FormControl>
-            <FormControl mt={4} isInvalid={!!errors?.body} isRequired>
+            <FormControl size="lg" mt={4} isInvalid={!!errors?.body} isRequired>
               <FormLabel>Body</FormLabel>
               <Textarea
                 name="body"
                 placeholder="Body"
-                size="sm"
+                size="md"
                 borderRadius="5px"
                 defaultValue={selectedNote?.body}
                 ref={register({ validate: validateBody })}
