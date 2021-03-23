@@ -60,7 +60,7 @@ const Repositories = () => {
             overflow="hidden"
           >
             {repositoriesList.map((repo, index) => (
-              <motion.div whileHover={{ y: -10 }}>
+              <motion.div whileHover={{ y: -10 }} key={index}>
                 <Center>
                 <Box
                   maxW="sm"
@@ -73,7 +73,6 @@ const Repositories = () => {
                   mb="10px"
                   mt="10px"
                   _hover={{ boxShadow: "lg" }}
-                  key={index}
                 >
                   <Image
                     height={{ base: "28vh", lg: "32vh" }}
