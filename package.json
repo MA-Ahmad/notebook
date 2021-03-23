@@ -2,6 +2,7 @@
   "name": "notebook-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ma-ahmad.github.io/notebook",
   "dependencies": {
     "@chakra-ui/icons": "^1.0.6",
     "@chakra-ui/react": "^1.0.0",
@@ -17,6 +18,7 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-router-dom": "^5.1.7",
     "framer-motion": ">=3.0.0",
+    "gh-pages": "^3.1.0",
     "nanoid": "^3.1.22",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -30,6 +32,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
