@@ -1,0 +1,2 @@
+.carousel-container{width:100%;height:100%;position:relative}.carousel-container,.next,.prev{display:flex;justify-content:center;align-items:center}.next,.prev{top:calc(50% - 20px);position:absolute;background:#fff;color:red;border-radius:30px;width:40px;height:40px;-webkit-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;font-weight:700;font-size:18px;z-index:2}.next{right:50px}.prev{left:50px}.carousel-container img{position:absolute;max-width:100vw;max-height:70vh;border-radius:5px}
+/*# sourceMappingURL=main.97dbf2af.chunk.css.map */
