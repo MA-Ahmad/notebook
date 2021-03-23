@@ -38,10 +38,10 @@ const NoteForm: React.SFC<NoteFormProps> = ({
   handleNoteCreate,
   handleNoteUpdate
 }) => {
-  const [title, setTitle] = React.useState("");
-  const [body, setBody] = React.useState("");
+  const { register, handleSubmit, formState, errors } = useForm<FormInputs>({
+    mode: "onChange"
+  });
 
-  const { register, handleSubmit, formState, errors } = useForm<FormInputs>();
   const onSubmit: SubmitHandler<FormInputs> = data => {
     let newNote: note = {
       id: "",
@@ -58,63 +58,51 @@ const NoteForm: React.SFC<NoteFormProps> = ({
     onClose();
   };
 
-  React.useEffect(() => {
-    if (selectedNote) {
-      setTitle(selectedNote.title);
-      setBody(selectedNote.body);
-    }
-  }, []);
-
-  const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTitle(event.target.value);
-  };
-
-  const handleNoteChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setBody(event.target.value);
-  };
-
-  function validateTitle(value: string) {
+  const validateTitle = (value: string) => {
     if (!value) {
       return "Title is required";
     } else return true;
-  }
+  };
 
-  function validateBody(value: string) {
+  const validateBody = (value: string) => {
     if (!value) {
       return "Body is required";
     } else return true;
-  }
+  };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} isCentered>
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      isCentered
+      motionPreset="slideInBottom"
+    >
       <ModalOverlay />
       <ModalContent>
         <form onSubmit={handleSubmit(onSubmit)}>
           <ModalHeader>{selectedNote ? "Edit" : "Create"} a Note</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-            <FormControl isInvalid={!!errors?.title}>
+            <FormControl isInvalid={!!errors?.title} isRequired>
               <FormLabel>Title</FormLabel>
               <Input
                 name="title"
                 placeholder="Title"
-                value={title}
-                onChange={event => handleTitleChange(event)}
+                defaultValue={selectedNote?.title}
                 ref={register({ validate: validateTitle })}
               />
               <FormErrorMessage>
                 {!!errors?.title && errors?.title?.message}
               </FormErrorMessage>
             </FormControl>
-            <FormControl mt={4} isInvalid={!!errors?.body}>
+            <FormControl mt={4} isInvalid={!!errors?.body} isRequired>
               <FormLabel>Body</FormLabel>
               <Textarea
                 name="body"
                 placeholder="Body"
                 size="sm"
                 borderRadius="5px"
-                value={body}
-                onChange={event => handleNoteChange(event)}
+                defaultValue={selectedNote?.body}
                 ref={register({ validate: validateBody })}
               />
               <FormErrorMessage>
