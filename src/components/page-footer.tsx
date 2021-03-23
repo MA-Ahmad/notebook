@@ -17,7 +17,13 @@ import {
 import siteConfig from "../configs/site-config";
 import { FooterSignup } from "./footer-signup";
 import { Link } from "react-router-dom";
-import { FaGithub, FaDev, FaLinkedin, FaQuora, FaTwitter } from "react-icons/fa";
+import {
+  FaGithub,
+  FaDev,
+  FaLinkedin,
+  FaQuora,
+  FaTwitter
+} from "react-icons/fa";
 
 type ExternalFooterLinkProps = {
   href: string;
@@ -137,6 +143,7 @@ export function PageFooter() {
               <Popover placement="top">
                 <PopoverTrigger>
                   <Text
+                    as="span"
                     _focus={{ outline: "none", boxShadow: "none" }}
                     fontWeight={500}
                     color="gray.500"
