@@ -9,6 +9,7 @@ import {
   Center,
   Fade,
   Icon,
+  useToast,
   useColorModeValue
 } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
@@ -25,6 +26,7 @@ const NotesList: React.SFC<NotesListProps> = ({
   setNotes
 }) => {
   const bg = useColorModeValue("white", "#2f3244");
+  const toast = useToast();
 
   const onDelete = (
     id: string,
@@ -32,7 +34,18 @@ const NotesList: React.SFC<NotesListProps> = ({
   ) => {
     const newNotes: note[] = notes.filter((note: note) => note.id !== id);
     setNotes(newNotes);
+    showToast();
     e.stopPropagation();
+  };
+
+  const showToast = () => {
+    toast({
+      title: "Note deleted.",
+      status: "success",
+      position: "top",
+      duration: 2000,
+      isClosable: true
+    });
   };
 
   return (
