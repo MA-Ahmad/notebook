@@ -10,9 +10,10 @@ import {
   Fade,
   Icon,
   useToast,
-  useColorModeValue
+  useColorModeValue,
+  HStack
 } from "@chakra-ui/react";
-import { DeleteIcon } from "@chakra-ui/icons";
+import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 
 export interface NotesListProps {
   notes: note[];
@@ -35,6 +36,11 @@ const NotesList: React.SFC<NotesListProps> = ({
     const newNotes: note[] = notes.filter((note: note) => note.id !== id);
     setNotes(newNotes);
     showToast();
+    e.stopPropagation();
+  };
+
+  const onClick = (id: string, e: React.MouseEvent<SVGElement, MouseEvent>) => {
+    handleClick(id);
     e.stopPropagation();
   };
 
@@ -92,15 +98,26 @@ const NotesList: React.SFC<NotesListProps> = ({
                         </Text>
                       </Box>
                       <Box _groupHover={{ display: "block" }} display="none">
-                        <Icon
-                          color={"green.500"}
-                          _hover={{ color: "#ca364a" }}
-                          _groupHover={{ display: "block" }}
-                          as={DeleteIcon}
-                          w={4}
-                          h={4}
-                          onClick={e => onDelete(note.id, e)}
-                        />
+                        <HStack spacing="2">
+                          <Icon
+                            color={"green.500"}
+                            _hover={{ color: "green.600" }}
+                            _groupHover={{ display: "block" }}
+                            as={EditIcon}
+                            w={4}
+                            h={4}
+                            onClick={e => onClick(note.id, e)}
+                          />
+                          <Icon
+                            color={"green.500"}
+                            _hover={{ color: "#ca364a" }}
+                            _groupHover={{ display: "block" }}
+                            as={DeleteIcon}
+                            w={4}
+                            h={4}
+                            onClick={e => onDelete(note.id, e)}
+                          />
+                        </HStack>
                       </Box>
                     </Flex>
                     <Heading
@@ -111,7 +128,11 @@ const NotesList: React.SFC<NotesListProps> = ({
                       {note.title}
                     </Heading>
 
-                    <Text color={"gray.500"} fontSize="md">
+                    <Text
+                      color={"gray.500"}
+                      fontSize="md"
+                      noOfLines={{ base: 3, md: 4 }}
+                    >
                       {note.body}
                     </Text>
                   </Stack>
