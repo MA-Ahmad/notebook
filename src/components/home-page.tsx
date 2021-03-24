@@ -13,13 +13,11 @@ export interface HomePageProps {
 export const HomePage: React.SFC<HomePageProps> = ({ notes, setNotes }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedNote, setSelectedNote] = React.useState<note>();
-  const [readOnly, setReadOnly] = React.useState<boolean>(true);
   const toast = useToast();
 
-  const handleClick = (id: string, readOnly: boolean) => {
+  const handleClick = (id: string) => {
     const selectedNote = notes.find((note: note) => note.id === id);
     setSelectedNote(selectedNote);
-    setReadOnly(readOnly);
     onOpen();
   };
 
@@ -53,20 +51,12 @@ export const HomePage: React.SFC<HomePageProps> = ({ notes, setNotes }) => {
         <HeroSection />
       )}
       {isOpen ? (
-        readOnly ? (
-          <NoteModal
-            isOpen={isOpen}
-            onClose={onClose}
-            selectedNote={selectedNote}
-          />
-        ) : (
-          <NoteForm
-            isOpen={isOpen}
-            onClose={onClose}
-            handleNoteUpdate={handleNoteUpdate}
-            selectedNote={selectedNote}
-          />
-        )
+        <NoteForm
+          isOpen={isOpen}
+          onClose={onClose}
+          handleNoteUpdate={handleNoteUpdate}
+          selectedNote={selectedNote}
+        />
       ) : (
         ""
       )}
