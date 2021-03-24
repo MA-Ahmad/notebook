@@ -5,10 +5,10 @@ import {
   Modal,
   ModalBody,
   ModalOverlay,
-  ModalFooter,
   ModalHeader,
-  ModalCloseButton,
+  ModalCloseButton
 } from "@chakra-ui/react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export interface NoteFormProps {
   isOpen: boolean;
@@ -22,20 +22,30 @@ const NoteModal: React.SFC<NoteFormProps> = ({
   selectedNote
 }) => {
   return (
-    <Modal
-      isOpen={isOpen}
-      onClose={onClose}
-      scrollBehavior={"inside"}
-      isCentered
-      motionPreset="slideInBottom"
-    >
-      <ModalOverlay />
-      <ModalContent>
-        <ModalHeader isTruncated paddingRight="10">{selectedNote?.title}</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody pb={6}>{selectedNote?.body}</ModalBody>
-      </ModalContent>
-    </Modal>
+    <AnimatePresence>
+      <motion.div layoutId={selectedNote?.id}>
+        <Modal
+          isOpen={isOpen}
+          onClose={onClose}
+          scrollBehavior={"inside"}
+          isCentered
+          motionPreset="slideInBottom"
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <motion.div>
+              <ModalHeader isTruncated paddingRight="10">
+                {selectedNote?.title}
+              </ModalHeader>
+            </motion.div>
+            <ModalCloseButton />
+            <motion.div>
+              <ModalBody pb={6}>{selectedNote?.body}</ModalBody>
+            </motion.div>
+          </ModalContent>
+        </Modal>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

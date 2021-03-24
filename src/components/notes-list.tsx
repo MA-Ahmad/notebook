@@ -11,13 +11,16 @@ import {
   Icon,
   useToast,
   useColorModeValue,
-  HStack
+  HStack,
+  useDisclosure
 } from "@chakra-ui/react";
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
+import { AnimateSharedLayout, motion, AnimatePresence } from "framer-motion";
+import NoteModal from "./note-modal";
 
 export interface NotesListProps {
   notes: note[];
-  handleClick: (id: string, readOnly: boolean) => void;
+  handleClick: (id: string) => void;
   setNotes: (note: note[]) => void;
 }
 
@@ -27,7 +30,9 @@ const NotesList: React.SFC<NotesListProps> = ({
   setNotes
 }) => {
   const bg = useColorModeValue("white", "#2f3244");
+  const [selectedNote, setSelectedNote] = React.useState<note>();
   const toast = useToast();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const onDelete = (
     id: string,
@@ -40,8 +45,13 @@ const NotesList: React.SFC<NotesListProps> = ({
   };
 
   const onClick = (id: string, e: React.MouseEvent<SVGElement, MouseEvent>) => {
-    handleClick(id, false);
+    handleClick(id);
     e.stopPropagation();
+  };
+
+  const handleSelectedNote = (note: note) => {
+    setSelectedNote(note);
+    onOpen();
   };
 
   const showToast = () => {
@@ -56,93 +66,112 @@ const NotesList: React.SFC<NotesListProps> = ({
 
   return (
     <>
-      <Box minH={"50vh"}>
-        <SimpleGrid
-          columns={[1, 2, 2, 3]}
-          mt="40px"
-          gridGap="10px"
-          position="relative"
-          overflow="hidden"
-        >
-          {notes.map(note => (
-            <Fade in={true}>
-              <Center py={6} px={5} key={note.id}>
-                <Box
-                  maxH={"400px"}
-                  w="100%"
-                  boxShadow={"lg"}
-                  rounded={"md"}
-                  p={6}
-                  overflow={"hidden"}
-                  cursor="pointer"
-                  _hover={{ boxShadow: "xl" }}
-                  bg={bg}
-                  role="group"
-                  onClick={() => handleClick(note.id, true)}
+      <AnimateSharedLayout type="crossfade">
+        <Box minH={"50vh"}>
+          <SimpleGrid
+            columns={[1, 2, 2, 3]}
+            mt="40px"
+            gridGap="10px"
+            position="relative"
+            overflow="hidden"
+          >
+            {notes.map(note => (
+              <Fade in={true}>
+                <motion.div
+                  layoutId={note.id}
+                  onClick={() => handleSelectedNote(note)}
                 >
-                  <Stack>
-                    <Flex
-                      _groupHover={{ justifyContent: "space-between" }}
-                      justifyContent="center"
-                      align="center"
+                  <Center py={6} px={5} key={note.id}>
+                    <Box
+                      maxH={"400px"}
+                      w="100%"
+                      boxShadow={"lg"}
+                      rounded={"md"}
+                      p={6}
+                      overflow={"hidden"}
+                      cursor="pointer"
+                      _hover={{ boxShadow: "xl" }}
+                      bg={bg}
+                      role="group"
+                      // onClick={() => handleClick(note.id, true)}
                     >
-                      <Box>
-                        <Text
-                          color={"green.500"}
-                          textTransform={"uppercase"}
-                          fontWeight={800}
-                          fontSize={"sm"}
-                          letterSpacing={1.1}
+                      <Stack>
+                        <Flex
+                          _groupHover={{ justifyContent: "space-between" }}
+                          justifyContent="center"
+                          align="center"
                         >
-                          Note
-                        </Text>
-                      </Box>
-                      <Box _groupHover={{ display: "block" }} display="none">
-                        <HStack spacing="2">
-                          <Icon
-                            color={"green.500"}
-                            _hover={{ color: "green.600" }}
+                          <Box>
+                            <Text
+                              color={"green.500"}
+                              textTransform={"uppercase"}
+                              fontWeight={800}
+                              fontSize={"sm"}
+                              letterSpacing={1.1}
+                            >
+                              Note
+                            </Text>
+                          </Box>
+                          <Box
                             _groupHover={{ display: "block" }}
-                            as={EditIcon}
-                            w={4}
-                            h={4}
-                            onClick={e => onClick(note.id, e)}
-                          />
-                          <Icon
-                            color={"green.500"}
-                            _hover={{ color: "#ca364a" }}
-                            _groupHover={{ display: "block" }}
-                            as={DeleteIcon}
-                            w={4}
-                            h={4}
-                            onClick={e => onDelete(note.id, e)}
-                          />
-                        </HStack>
-                      </Box>
-                    </Flex>
-                    <Heading
-                      fontSize={"xl"}
-                      fontFamily={"body"}
-                      textTransform="capitalize"
-                      noOfLines={2}
-                    >
-                      {note.title}
-                    </Heading>
+                            display="none"
+                          >
+                            <HStack spacing="2">
+                              <Icon
+                                color={"green.500"}
+                                _hover={{ color: "green.600" }}
+                                _groupHover={{ display: "block" }}
+                                as={EditIcon}
+                                w={4}
+                                h={4}
+                                onClick={e => onClick(note.id, e)}
+                              />
+                              <Icon
+                                color={"green.500"}
+                                _hover={{ color: "#ca364a" }}
+                                _groupHover={{ display: "block" }}
+                                as={DeleteIcon}
+                                w={4}
+                                h={4}
+                                onClick={e => onDelete(note.id, e)}
+                              />
+                            </HStack>
+                          </Box>
+                        </Flex>
+                        <Heading
+                          fontSize={"xl"}
+                          fontFamily={"body"}
+                          textTransform="capitalize"
+                          noOfLines={2}
+                        >
+                          {note.title}
+                        </Heading>
 
-                    <Text
-                      color={"gray.500"}
-                      fontSize="md"
-                      noOfLines={{ base: 3, md: 4 }}
-                    >
-                      {note.body}
-                    </Text>
-                  </Stack>
-                </Box>
-              </Center>
-            </Fade>
-          ))}
-        </SimpleGrid>
-      </Box>
+                        <Text
+                          color={"gray.500"}
+                          fontSize="md"
+                          noOfLines={{ base: 3, md: 4 }}
+                        >
+                          {note.body}
+                        </Text>
+                      </Stack>
+                    </Box>
+                  </Center>
+                </motion.div>
+              </Fade>
+            ))}
+          </SimpleGrid>
+        </Box>
+        {isOpen ? (
+          <NoteModal
+            isOpen={isOpen}
+            onClose={onClose}
+            selectedNote={selectedNote}
+          />
+        ) : (
+          ""
+        )}
+      </AnimateSharedLayout>
     </>
   );
 };
