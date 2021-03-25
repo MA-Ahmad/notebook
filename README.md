@@ -1,6 +1,6 @@
 This is a notebook app which will help you to crate notes for your daily work.
 
-![Home Page](/public/cover_images/notebook_app.png)
+![Home Page](/public/notebook_app.png)
 
 ## Built with
 - [Reactjs](https://reactjs.org/)
