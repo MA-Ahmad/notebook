@@ -41,39 +41,35 @@ export interface CarouselProps {
   onOpen: () => void;
   onClose: () => void;
   isOpen: boolean;
-  imageUrl?: string;
+  repoId: number;
 }
 
 const Carousel: React.SFC<CarouselProps> = ({
-  imageUrl,
   onOpen,
   onClose,
-  isOpen
+  isOpen,
+  repoId
 }) => {
   const [[page, direction], setPage] = React.useState([0, 0]);
-  const [imageIndex1, setImageIndex1] = React.useState<number>(0);
+  const [imageIndex, setImageIndex] = React.useState<number>(0);
 
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
   };
 
   React.useEffect(() => {
-    console.log(imageUrl);
-    const index = coverImages.findIndex(
-      (cImage: string) => cImage === imageUrl
-    );
-    setImageIndex1(index);
-  }, [imageUrl]);
+    setImageIndex(repoId);
+  }, [repoId]);
 
   const nextImage = (newDirection: number) => {
     paginate(newDirection);
-    setImageIndex1(imageIndex1 + 1 < coverImages.length ? imageIndex1 + 1 : 0);
+    setImageIndex(imageIndex + 1 < coverImages.length ? imageIndex + 1 : 0);
   };
 
   const prevImage = (newDirection: number) => {
     paginate(newDirection);
-    setImageIndex1(
-      0 === imageIndex1 ? coverImages.length - 1 : imageIndex1 - 1
+    setImageIndex(
+      0 === imageIndex ? coverImages.length - 1 : imageIndex - 1
     );
   };
 
@@ -86,7 +82,7 @@ const Carousel: React.SFC<CarouselProps> = ({
             <AnimatePresence initial={false} custom={direction}>
               <motion.img
                 key={page}
-                src={coverImages[imageIndex1]}
+                src={coverImages[imageIndex]}
                 custom={direction}
                 variants={variants}
                 initial="enter"
