@@ -78,6 +78,7 @@ const NotesList: React.SFC<NotesListProps> = ({
             {notes.map(note => (
               <Fade in={true}>
                 <motion.div
+                  whileHover={{ y: -10 }}
                   layoutId={note.id}
                   onClick={() => handleSelectedNote(note)}
                 >
