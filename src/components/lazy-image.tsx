@@ -32,7 +32,6 @@ const LazyImage = (props: LazyImageProps) => {
         ) : (
           <Image
             src={src}
-            // height={{ base: "28vh", lg: "32vh" }}
             height={300}
             width={"100%"}
             cursor={"pointer"}
