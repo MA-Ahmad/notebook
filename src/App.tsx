@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { ChakraProvider, Box, theme } from "@chakra-ui/react";
 import { TopNav } from "./components/top-nav";
 import { PageFooter } from "./components/page-footer";
-import Repositories from "./components/repositories";
+import RepositoriesList from "./components/repositories-list";
 import { HomePage } from "./components/home-page";
 import { RouteComponentProps, withRouter } from "react-router";
 
@@ -24,7 +24,7 @@ const App: React.FC<AppComponentProps> = ({ history }) => {
       <Box textAlign="center" fontSize="xl" p={5}>
         <TopNav handleNoteCreate={handleNoteCreate} />
         <Switch>
-          <Route exact path="/projects" component={Repositories} />
+          <Route exact path="/projects" component={RepositoriesList} />
           <Route
             exact
             path="/"
