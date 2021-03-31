@@ -12,6 +12,18 @@ type AppComponentProps = RouteComponentProps;
 const App: React.FC<AppComponentProps> = ({ history }) => {
   const [notes, setNotes] = React.useState<note[]>([]);
 
+  React.useEffect(() => {
+    const dummyNotes = [
+      {
+        id: "Odork5n5jPVd0wvm0w_dY",
+        title: "Hey 👋",
+        body:
+          "I'm dummy note here. Try to update me. Click me to see my remaining part. You can also delete me 😔. But I'll be here again by reopening the app link 😃. "
+      }
+    ];
+    setNotes(dummyNotes);
+  }, []);
+
   const handleNoteCreate = (note: note) => {
     const newNotesState: note[] = [...notes];
     newNotesState.push(note);
