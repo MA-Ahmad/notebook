@@ -17,6 +17,7 @@ import {
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import { AnimateSharedLayout, motion, AnimatePresence } from "framer-motion";
 import NoteModal from "./note-modal";
+import StackGrid from "react-stack-grid";
 
 export interface NotesListProps {
   notes: note[];
@@ -68,13 +69,14 @@ const NotesList: React.SFC<NotesListProps> = ({
     <>
       <AnimateSharedLayout type="crossfade">
         <Box minH={"50vh"}>
-          <SimpleGrid
+          {/* <SimpleGrid
             columns={[1, 2, 2, 3]}
             mt="40px"
             gridGap="10px"
             position="relative"
             overflow="hidden"
-          >
+          > */}
+          <StackGrid columnWidth={330}>
             {notes.map(note => (
               <Fade in={true}>
                 <motion.div
@@ -161,7 +163,8 @@ const NotesList: React.SFC<NotesListProps> = ({
                 </motion.div>
               </Fade>
             ))}
-          </SimpleGrid>
+          </StackGrid>
+          {/* </SimpleGrid> */}
         </Box>
         {isOpen ? (
           <NoteModal

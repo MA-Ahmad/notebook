@@ -61,7 +61,7 @@ export const TopNav: React.SFC<TopNavProps> = ({ handleNoteCreate }) => {
                 _hover={{ bg: "gray.400" }}
                 _focus={{ boxShadow: "outline" }}
               />
-              <MenuList fontSize="sm">
+              <MenuList fontSize="sm" zIndex={5}>
                 <MenuItem icon={<AddIcon />} onClick={onOpen}>
                   {" "}
                   <Text textShadow="1px 1px #9c1786">New Note</Text>
