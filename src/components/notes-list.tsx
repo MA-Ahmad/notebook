@@ -84,7 +84,7 @@ const NotesList: React.SFC<NotesListProps> = ({
                   layoutId={note.id}
                   onClick={() => handleSelectedNote(note)}
                 >
-                  <Center py={6} px={5} key={note.id}>
+                  <Center py={2} px={2} key={note.id}>
                     <Box
                       maxH={"400px"}
                       w="100%"
