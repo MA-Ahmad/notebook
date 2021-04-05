@@ -12,6 +12,7 @@ import {
   IconButton,
   MenuList,
   HStack,
+  Button,
   useDisclosure
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
@@ -30,51 +31,79 @@ export const TopNav: React.SFC<TopNavProps> = ({ handleNoteCreate }) => {
   return (
     <>
       <Flex mb={"30px"} align="center">
-        <Box p="2" as={Link} to="/">
-          <motion.div whileHover={{ scale: 1.1 }}>
-            <Heading
-              as="h1"
-              size="xl"
-              bgGradient="linear(to-l, #7928CA,#FF0080)"
-              bgClip="text"
-              _focus={{ boxShadow: "none", outline: "none" }}
-              _hover={{
-                textDecoration: "none",
-                bgGradient: "linear(to-r, red.500, yellow.500)"
-              }}
-            >
-              Notebook App
-            </Heading>
-          </motion.div>
-        </Box>
+        <HStack>
+          <Box p="2" as={Link} to="/">
+            <motion.div whileHover={{ scale: 1.1 }}>
+              <Heading
+                as="h1"
+                size="xl"
+                bgGradient="linear(to-l, #7928CA,#FF0080)"
+                bgClip="text"
+                _focus={{ boxShadow: "none", outline: "none" }}
+                _hover={{
+                  textDecoration: "none",
+                  bgGradient: "linear(to-r, red.500, yellow.500)"
+                }}
+              >
+                Notebook App
+              </Heading>
+            </motion.div>
+          </Box>
+        </HStack>
         <Spacer />
         <Box>
           <HStack>
-            <Menu>
-              <MenuButton
-                as={IconButton}
-                aria-label="Options"
-                icon={<HamburgerIcon />}
-                transition="all 0.2s"
-                size="md"
-                variant="outline"
-                _hover={{ bg: "gray.400" }}
-                _focus={{ boxShadow: "outline" }}
-              />
-              <MenuList fontSize="sm" zIndex={5}>
-                <MenuItem icon={<AddIcon />} onClick={onOpen}>
-                  {" "}
-                  <Text textShadow="1px 1px #9c1786">New Note</Text>
-                </MenuItem>
-                <MenuDivider />
-                <MenuItem icon={<ArrowRightIcon />} as={Link} to="/projects">
-                  {" "}
-                  <Text textShadow="1px 1px #9c1786">
-                    Open Source Repositories
-                  </Text>
-                </MenuItem>
-              </MenuList>
-            </Menu>
+            <HStack d={["none", "none", "block"]}>
+              <Button
+                leftIcon={<AddIcon />}
+                bgGradient="linear(to-l, #f2709c,#ff9472)"
+                _hover={{ bgGradient: "linear(to-l, #7928CA,#FF0080)" }}
+                colorScheme="teal"
+                variant="solid"
+                size="sm"
+                onClick={onOpen}
+              >
+                Add new note
+              </Button>
+              <Button
+                leftIcon={<ArrowRightIcon />}
+                bgGradient="linear(to-l, #f2709c,#ff9472)"
+                _hover={{ bgGradient: "linear(to-l, #7928CA,#FF0080)" }}
+                colorScheme="teal"
+                size="sm"
+                as={Link}
+                to="/projects"
+              >
+                Open source
+              </Button>
+            </HStack>
+            <Box d={["block", "block", "none"]}>
+              <Menu>
+                <MenuButton
+                  as={IconButton}
+                  aria-label="Options"
+                  icon={<HamburgerIcon />}
+                  transition="all 0.2s"
+                  size="md"
+                  variant="outline"
+                  _hover={{ bg: "gray.400" }}
+                  _focus={{ boxShadow: "outline" }}
+                />
+                <MenuList fontSize="sm" zIndex={5}>
+                  <MenuItem icon={<AddIcon />} onClick={onOpen}>
+                    {" "}
+                    <Text textShadow="1px 1px #9c1786">Add new note</Text>
+                  </MenuItem>
+                  <MenuDivider />
+                  <MenuItem icon={<ArrowRightIcon />} as={Link} to="/projects">
+                    {" "}
+                    <Text textShadow="1px 1px #9c1786">
+                      Open source repositories
+                    </Text>
+                  </MenuItem>
+                </MenuList>
+              </Menu>
+            </Box>
             <ColorModeSwitcher justifySelf="flex-end" />
           </HStack>
         </Box>
