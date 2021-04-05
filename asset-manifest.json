@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/notebook/static/css/main.97dbf2af.chunk.css",
-    "main.js": "/notebook/static/js/main.29bf6b4c.chunk.js",
-    "main.js.map": "/notebook/static/js/main.29bf6b4c.chunk.js.map",
+    "main.js": "/notebook/static/js/main.470e52ba.chunk.js",
+    "main.js.map": "/notebook/static/js/main.470e52ba.chunk.js.map",
     "runtime-main.js": "/notebook/static/js/runtime-main.ae90e0b3.js",
     "runtime-main.js.map": "/notebook/static/js/runtime-main.ae90e0b3.js.map",
-    "static/js/2.33d36cac.chunk.js": "/notebook/static/js/2.33d36cac.chunk.js",
-    "static/js/2.33d36cac.chunk.js.map": "/notebook/static/js/2.33d36cac.chunk.js.map",
+    "static/js/2.62afb2e9.chunk.js": "/notebook/static/js/2.62afb2e9.chunk.js",
+    "static/js/2.62afb2e9.chunk.js.map": "/notebook/static/js/2.62afb2e9.chunk.js.map",
     "index.html": "/notebook/index.html",
     "static/css/main.97dbf2af.chunk.css.map": "/notebook/static/css/main.97dbf2af.chunk.css.map",
-    "static/js/2.33d36cac.chunk.js.LICENSE.txt": "/notebook/static/js/2.33d36cac.chunk.js.LICENSE.txt",
+    "static/js/2.62afb2e9.chunk.js.LICENSE.txt": "/notebook/static/js/2.62afb2e9.chunk.js.LICENSE.txt",
     "static/media/blog_1.e55bd114.png": "/notebook/static/media/blog_1.e55bd114.png",
     "static/media/blog_2.3712eddc.png": "/notebook/static/media/blog_2.3712eddc.png",
     "static/media/blog_3.d0737200.png": "/notebook/static/media/blog_3.d0737200.png",
@@ -19,8 +19,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.ae90e0b3.js",
-    "static/js/2.33d36cac.chunk.js",
+    "static/js/2.62afb2e9.chunk.js",
     "static/css/main.97dbf2af.chunk.css",
-    "static/js/main.29bf6b4c.chunk.js"
+    "static/js/main.470e52ba.chunk.js"
   ]
 }
