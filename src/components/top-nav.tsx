@@ -56,8 +56,8 @@ export const TopNav: React.SFC<TopNavProps> = ({ handleNoteCreate }) => {
             <HStack d={["none", "none", "block"]}>
               <Button
                 leftIcon={<AddIcon />}
-                bgGradient="linear(to-l, #f2709c,#ff9472)"
-                _hover={{ bgGradient: "linear(to-l, #7928CA,#FF0080)" }}
+                bgGradient="linear(to-l, #7928CA,#FF0080)"
+                _hover={{ bgGradient: "linear(to-r, red.500, yellow.500)" }}
                 variant="solid"
                 size="sm"
                 onClick={onOpen}
@@ -66,8 +66,8 @@ export const TopNav: React.SFC<TopNavProps> = ({ handleNoteCreate }) => {
               </Button>
               <Button
                 leftIcon={<ArrowRightIcon />}
-                bgGradient="linear(to-l, #f2709c,#ff9472)"
-                _hover={{ bgGradient: "linear(to-l, #7928CA,#FF0080)" }}
+                bgGradient="linear(to-l, #7928CA,#FF0080)"
+                _hover={{ bgGradient: "linear(to-r, red.500, yellow.500)" }}
                 variant="solid"
                 size="sm"
                 as={Link}
