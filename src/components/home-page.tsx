@@ -3,7 +3,7 @@ import { useDisclosure, useToast } from "@chakra-ui/react";
 import NotesList from "./notes-list";
 import HeroSection from "./hero-section";
 import NoteForm from "./note-form";
-import NoteModal from "./note-modal";
+import { AnimatePage } from "./motion/motion";
 
 export interface HomePageProps {
   notes: note[];
@@ -41,25 +41,27 @@ export const HomePage: React.SFC<HomePageProps> = ({ notes, setNotes }) => {
 
   return (
     <>
-      {notes.length ? (
-        <NotesList
-          notes={notes}
-          handleClick={handleClick}
-          setNotes={setNotes}
-        />
-      ) : (
-        <HeroSection />
-      )}
-      {isOpen ? (
-        <NoteForm
-          isOpen={isOpen}
-          onClose={onClose}
-          handleNoteUpdate={handleNoteUpdate}
-          selectedNote={selectedNote}
-        />
-      ) : (
-        ""
-      )}
+      <AnimatePage>
+        {notes.length ? (
+          <NotesList
+            notes={notes}
+            handleClick={handleClick}
+            setNotes={setNotes}
+          />
+        ) : (
+          <HeroSection />
+        )}
+        {isOpen ? (
+          <NoteForm
+            isOpen={isOpen}
+            onClose={onClose}
+            handleNoteUpdate={handleNoteUpdate}
+            selectedNote={selectedNote}
+          />
+        ) : (
+          ""
+        )}
+      </AnimatePage>
     </>
   );
 };
