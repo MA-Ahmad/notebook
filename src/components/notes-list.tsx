@@ -3,7 +3,6 @@ import {
   Box,
   Stack,
   Heading,
-  SimpleGrid,
   Text,
   Flex,
   Center,
@@ -15,7 +14,7 @@ import {
   useDisclosure
 } from "@chakra-ui/react";
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
-import { AnimateSharedLayout, motion, AnimatePresence } from "framer-motion";
+import { AnimateSharedLayout, motion } from "framer-motion";
 import NoteModal from "./note-modal";
 import StackGrid from "react-stack-grid";
 

@@ -4,7 +4,6 @@ import {
   Box,
   SimpleGrid,
   Flex,
-  SlideFade,
 } from "@chakra-ui/react";
 import repositoriesList from "data/repositories-list";
 import { motion } from "framer-motion";
