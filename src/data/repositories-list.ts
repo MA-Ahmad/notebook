@@ -3,6 +3,35 @@ import coverImages from "./cover_images";
 const repositoriesList = [
   {
     id: 0,
+    title: "Portfolio",
+    desc: "Personal portfolio app to show my skills and experience.",
+    technologies: [
+      { name: "React", color: "green" },
+      { name: "ChakraUi", color: "teal" }
+    ],
+    stars: 12,
+    githubLink: "https://github.com/MA-Ahmad/portfolio",
+    liveLink: "https://mahmad.me/",
+    coverImage: coverImages[2],
+    blurHash: "U4S~x501-;~pRiNGIURjRjIoM{xbNFR*Rjay"
+  },
+  {
+    id: 1,
+    title: "Notebook App",
+    desc: "Create notes for your daily important work.",
+    technologies: [
+      { name: "React", color: "green" },
+      { name: "Typescript", color: "blue" },
+      { name: "ChakraUi", color: "teal" }
+    ],
+    stars: 11,
+    githubLink: "https://github.com/MA-Ahmad/notebook",
+    liveLink: "",
+    coverImage: coverImages[4],
+    blurHash: "U4S~x6WE~WwJ=|VsMybb%NVt8_tP%2RQRknl"
+  },
+  {
+    id: 2,
     title: "Blog App",
     desc: "A Blog App built by using React, ChakraUI and Formik.",
     technologies: [
@@ -16,7 +45,7 @@ const repositoriesList = [
     blurHash: "ULM*T}IV~pxt00%LRjNG9~IVadt6?vxtD%Rj"
   },
   {
-    id: 1,
+    id: 3,
     title: "Blog App + Authentication",
     desc: "A Blog App built by using React, Rails, ChakraUI and Formik.",
     technologies: [
@@ -32,35 +61,6 @@ const repositoriesList = [
   },
   {
     id: 4,
-    title: "Notebook App",
-    desc: "Create notes for your daily important work.",
-    technologies: [
-      { name: "React", color: "green" },
-      { name: "Typescript", color: "blue" },
-      { name: "ChakraUi", color: "teal" }
-    ],
-    stars: 6,
-    githubLink: "https://github.com/MA-Ahmad/notebook",
-    liveLink: "",
-    coverImage: coverImages[4],
-    blurHash: "U4S~x6WE~WwJ=|VsMybb%NVt8_tP%2RQRknl"
-  },
-  {
-    id: 2,
-    title: "Portfolio",
-    desc: "Personal portfolio app to show my skills and experience.",
-    technologies: [
-      { name: "React", color: "green" },
-      { name: "ChakraUi", color: "teal" }
-    ],
-    stars: 2,
-    githubLink: "https://github.com/MA-Ahmad/portfolio",
-    liveLink: "https://mahmad.me/",
-    coverImage: coverImages[2],
-    blurHash: "U4S~x501-;~pRiNGIURjRjIoM{xbNFR*Rjay"
-  },
-  {
-    id: 3,
     title: "Image Gallery",
     desc: "This app built by using Tailwind CSS with React and Pixabay API.",
     technologies: [
