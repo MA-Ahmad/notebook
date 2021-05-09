@@ -14,7 +14,7 @@ import {
   PopoverBody,
   IconButton
 } from "@chakra-ui/react";
-import siteConfig from "../configs/site-config";
+import siteConfig from "configs/site-config";
 import { FooterSignup } from "./footer-signup";
 import { Link } from "react-router-dom";
 import {

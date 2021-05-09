@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { AddIcon, HamburgerIcon, ArrowRightIcon } from "@chakra-ui/icons";
-import { ColorModeSwitcher } from "../ColorModeSwitcher";
+import { ColorModeSwitcher } from "ColorModeSwitcher";
 import NoteForm from "./note-form";
 import { motion } from "framer-motion";
 

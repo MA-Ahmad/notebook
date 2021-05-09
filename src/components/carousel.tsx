@@ -7,9 +7,9 @@ import {
   IconButton
 } from "@chakra-ui/react";
 import { ChevronRightIcon, ChevronLeftIcon } from "@chakra-ui/icons";
-import coverImages from "../data/cover_images";
+import coverImages from "data/cover_images";
 import { motion, AnimatePresence } from "framer-motion";
-import "../assets/stylesheets/carousel.css";
+import "assets/stylesheets/carousel.css";
 
 const variants = {
   enter: (direction: number) => {

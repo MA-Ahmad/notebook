@@ -6,7 +6,7 @@ import {
   Flex,
   SlideFade,
 } from "@chakra-ui/react";
-import repositoriesList from "../data/repositories-list";
+import repositoriesList from "data/repositories-list";
 import { motion } from "framer-motion";
 import RepositoriesListItem from "./repositories-list-item";
 import { AnimatePage } from "./motion/motion";
