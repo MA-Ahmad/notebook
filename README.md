@@ -8,7 +8,7 @@ This is a notebook app which will help you to crate notes for your daily work.
 - [Chakra UI](https://chakra-ui.com)
 - [react icons](https://react-icons.github.io/react-icons/)
 
-## View components and Copy code of your favourite components
+## View and copy code of your favourite components
 [TemplatesKart website](https://templateskart.com/projects/notebook-app)
 
 ## License
